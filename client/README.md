@@ -1,4 +1,4 @@
-# Quasar App (client)
+# Farm (farm)
 
 A Quasar Framework app
 
