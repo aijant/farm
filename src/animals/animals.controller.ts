@@ -10,6 +10,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { PaginationQueryDto } from './../common/dto/pagination-query.dto';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
 import { AnimalsService } from './animals.service';
@@ -18,9 +19,9 @@ import { AnimalsService } from './animals.service';
 export class AnimalsController {
   constructor(private readonly animalsService: AnimalsService) {}
   @Get()
-  findAll(@Query() paginationQuery) {
+  findAll(@Query() paginationQuery: PaginationQueryDto) {
     // const { limit, offset } = paginationQuery;
-    return this.animalsService.findAll();
+    return this.animalsService.findAll(paginationQuery);
   }
   @Get(':id')
   findOne(@Param('id') id: string) {

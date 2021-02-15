@@ -1,8 +1,15 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Status } from './status.entity';
 
 @Entity()
 export class Animal {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
@@ -11,6 +18,12 @@ export class Animal {
   @Column()
   age: number;
 
-  @Column('json', { nullable: true })
-  status: string[];
+  @Column({ default: 0 })
+  recommendations: number;
+
+  @JoinTable()
+  @ManyToMany((type) => Status, (status) => status.animals, {
+    cascade: true,
+  })
+  status: Status[];
 }
