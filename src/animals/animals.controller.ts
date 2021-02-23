@@ -18,6 +18,7 @@ import { AnimalsService } from './animals.service';
 @Controller('animals')
 export class AnimalsController {
   constructor(private readonly animalsService: AnimalsService) {}
+
   @Get()
   findAll(@Query() paginationQuery: PaginationQueryDto) {
     // const { limit, offset } = paginationQuery;
