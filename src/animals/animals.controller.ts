@@ -14,11 +14,13 @@ import { PaginationQueryDto } from './../common/dto/pagination-query.dto';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
 import { AnimalsService } from './animals.service';
+import { Public } from 'src/common/decorator/public.decorator';
 
 @Controller('animals')
 export class AnimalsController {
   constructor(private readonly animalsService: AnimalsService) {}
 
+  @Public()
   @Get()
   findAll(@Query() paginationQuery: PaginationQueryDto) {
     // const { limit, offset } = paginationQuery;

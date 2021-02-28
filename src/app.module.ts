@@ -4,10 +4,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AnimalsModule } from './animals/animals.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CommonModule } from './common/common.module';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      load: [appConfig],
+    }),
     AnimalsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -19,6 +23,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
