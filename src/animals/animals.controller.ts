@@ -15,7 +15,9 @@ import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
 import { AnimalsService } from './animals.service';
 import { Public } from 'src/common/decorator/public.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('animals')
 @Controller('animals')
 export class AnimalsController {
   constructor(private readonly animalsService: AnimalsService) {}
