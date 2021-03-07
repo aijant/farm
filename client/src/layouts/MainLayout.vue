@@ -61,8 +61,13 @@ export default {
       leftDrawerOpen: false,
       navs: [
         {
-          title: "Cows",
+          title: "Animals",
           to: "/",
+          icon: "eco"
+        },
+        {
+          title: "Cows",
+          to: "/cows",
           icon: "eco"
         },
         {
