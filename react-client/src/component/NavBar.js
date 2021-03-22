@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "primereact/resources/themes/saga-blue/theme.css";
@@ -11,6 +10,9 @@ const NavBar = () => {
     {
       label: "Home",
       icon: "pi pi-fw pi-home",
+      command: () => {
+        window.location = "/";
+      },
       items: [
         {
           label: "User",
@@ -31,6 +33,9 @@ const NavBar = () => {
     {
       label: "Animals",
       icon: "pi pi-fw pi-th-large",
+      command: () => {
+        window.location.pathname = "/animals";
+      },
       items: [
         {
           label: "Cows",
