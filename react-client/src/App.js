@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from './component/NavBar'
 import Home from "./component/Home";
 import Animals from "./component/Animals";
+
 const App = () =>{
   return (
     <div className="App">
@@ -20,6 +22,6 @@ const App = () =>{
   );
 }
 
-export default App;
+export default connect(null, null)(App);
 
 
